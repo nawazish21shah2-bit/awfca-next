@@ -1,0 +1,11 @@
+.swiper-button-next {
+  color: var(--giveon-primary) !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1rem !important;
+  font-weight: 700;
+}

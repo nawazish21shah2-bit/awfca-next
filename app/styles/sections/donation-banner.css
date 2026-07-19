@@ -1,0 +1,93 @@
+.donation-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0;
+  background-image:
+    linear-gradient(270deg, rgba(27, 36, 54, 0.88) 0%, rgba(27, 36, 54, 0.35) 48%, rgba(255, 255, 255, 0) 72%),
+    linear-gradient(0deg, rgba(27, 36, 54, 0.25), transparent 40%),
+    url("/images/awfca/donation-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.donation-banner__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.donation-banner__form {
+  width: min(635px, 100%);
+}
+
+.donation-banner__form form {
+  width: 100%;
+  max-width: 635px;
+}
+
+.donation-banner__card {
+  padding: 2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 24px 60px rgba(15, 20, 32, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.donation-banner__eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--giveon-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.donation-banner__title {
+  margin: 0;
+  color: var(--giveon-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.donation-banner__text {
+  margin: 0.85rem 0 0;
+  color: var(--giveon-text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.donation-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .donation-banner {
+    padding: 60px 0;
+  }
+
+  .donation-banner__form {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .donation-banner {
+    background-attachment: fixed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .donation-banner {
+    background-attachment: scroll;
+  }
+}

@@ -1,0 +1,106 @@
+/* Internal page hero */
+
+.about-page-hero {
+  position: relative;
+  padding: 250px 0 140px;
+  color: #fff;
+  background-color: var(--giveon-primary);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(15, 20, 32, 0.9) 0%, rgba(27, 36, 54, 0.72) 42%, rgba(27, 36, 54, 0.18) 72%),
+    linear-gradient(0deg, rgba(15, 20, 32, 0.35), transparent 45%);
+}
+
+.about-page-hero__glow {
+  position: absolute;
+  left: -6%;
+  bottom: -30%;
+  z-index: 0;
+  width: min(52vw, 560px);
+  height: min(52vw, 560px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--giveon-glow), transparent 68%);
+  pointer-events: none;
+}
+
+.about-page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.about-page-hero__brand {
+  margin: 0 0 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.about-page-hero__title {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.about-page-hero__breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-page-hero__breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-inline: 8px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.about-page-hero__breadcrumbs a {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.about-page-hero__breadcrumbs a:hover {
+  color: #fff;
+}
+
+.about-page-hero__breadcrumbs [aria-current="page"] {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .about-page-hero {
+    padding-block: 140px 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-page-hero {
+    padding-block: 120px 64px;
+  }
+
+  .about-page-hero__overlay {
+    background:
+      linear-gradient(180deg, rgba(15, 20, 32, 0.55), rgba(15, 20, 32, 0.86)),
+      linear-gradient(90deg, rgba(15, 20, 32, 0.55), transparent 70%);
+  }
+}

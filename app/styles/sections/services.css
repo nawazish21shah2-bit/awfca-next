@@ -1,0 +1,240 @@
+/* Services */
+.services-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 110px 0 120px;
+  background:
+    radial-gradient(800px 420px at 50% 0%, rgba(224, 69, 58, 0.04), transparent 55%),
+    var(--background);
+}
+
+.services-section__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.services-heading {
+  display: flex;
+  width: min(720px, 100%);
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.services-title {
+  max-width: 720px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.services-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.services-grid > * {
+  height: 100%;
+}
+
+.service-card {
+  display: flex;
+  min-height: 450px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, #fff 0%, var(--giveon-surface) 100%);
+  border: 1px solid var(--giveon-divider);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.4s var(--ease-out),
+    border-color 0.35s ease,
+    box-shadow 0.4s var(--ease-out);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--giveon-accent) 28%, transparent);
+  box-shadow: 0 24px 55px rgba(27, 36, 54, 0.12);
+}
+
+.service-card__icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 40px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--giveon-accent);
+  transition: background-color 0.35s ease;
+}
+
+.service-card:hover .service-card__icon {
+  background: var(--giveon-primary);
+}
+
+.service-card__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.7;
+}
+
+.service-card h3 {
+  margin: 0;
+  color: var(--giveon-primary);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.service-card__body p {
+  margin: 0 0 30px;
+  color: var(--giveon-text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.service-card__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 30px;
+  border-top: 1px solid var(--giveon-divider);
+  color: var(--giveon-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.service-card__link svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.service-card__link:hover svg {
+  transform: rotate(45deg);
+}
+
+.services-shape {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.services-shape--left {
+  top: -20px;
+  left: 0;
+  width: 220px;
+  height: 240px;
+  object-fit: cover;
+}
+
+.services-shape--right {
+  right: 30px;
+  bottom: -30px;
+  width: 220px;
+  height: 365px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .services-section {
+    padding: 60px 0;
+  }
+
+  .services-section__inner {
+    gap: 20px;
+  }
+
+  .services-heading {
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+.services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card {
+    min-height: 360px;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .service-card__icon {
+    margin-bottom: 30px;
+  }
+
+  .services-shape {
+    opacity: 0.5;
+  }
+
+  .services-shape--left {
+    width: 150px;
+    height: 170px;
+  }
+
+  .services-shape--right {
+    width: 140px;
+    height: 232px;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-section__inner {
+    gap: 10px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .service-card__icon {
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 18px;
+  }
+
+  .service-card__body p {
+    margin-bottom: 20px;
+  }
+
+  .service-card__link {
+    padding-top: 20px;
+  }
+
+  .services-contact {
+    margin-top: 10px;
+  }
+
+  .services-shape--right {
+    right: 10px;
+  }
+}

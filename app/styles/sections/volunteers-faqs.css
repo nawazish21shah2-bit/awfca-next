@@ -1,0 +1,333 @@
+.volunteers-page {
+  padding: 100px 0 120px;
+  background:
+    radial-gradient(700px 360px at 100% 0%, rgba(224, 69, 58, 0.05), transparent 55%),
+    var(--giveon-surface);
+}
+
+.volunteers-page__intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  max-width: none;
+  margin-bottom: 2.25rem;
+}
+
+.volunteers-page__intro p {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--giveon-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.volunteers-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .volunteers-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .volunteers-page {
+    padding: 60px 0 80px;
+  }
+
+  .volunteers-page__intro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .volunteers-page__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faqs-page {
+  padding: 110px 0 120px;
+  background:
+    radial-gradient(800px 420px at 0% 0%, rgba(224, 69, 58, 0.04), transparent 55%),
+    var(--background);
+}
+
+.faqs-page__grid {
+  display: grid;
+  grid-template-columns: 33.333% 66.667%;
+  gap: 0;
+  align-items: start;
+}
+
+.faqs-page__sidebar {
+  position: sticky;
+  top: 120px;
+  padding: 10px 40px 10px 10px;
+}
+
+.faqs-page__nav {
+  margin-bottom: 30px;
+  padding: 20px 40px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid var(--giveon-divider);
+  box-shadow: 0 18px 50px rgba(27, 36, 54, 0.06);
+}
+
+.faqs-page__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.faqs-page__nav li:not(:last-child) {
+  border-bottom: 1px solid var(--giveon-divider);
+}
+
+.faqs-page__nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px 0;
+  color: var(--giveon-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.faqs-page__nav a svg {
+  width: 14px;
+  height: 14px;
+  margin-top: 5px;
+  flex: 0 0 auto;
+  color: var(--giveon-accent);
+  stroke-width: 2;
+}
+
+.faqs-page__nav a:hover {
+  color: var(--giveon-accent);
+}
+
+.faqs-page__contact {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 40px;
+  border-radius: 22px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(20, 28, 44, 0.35), rgba(20, 28, 44, 0.88)),
+    url("/images/awfca/about/cause-community.jpg") center / cover no-repeat;
+}
+
+.faqs-page__contact-icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--giveon-accent);
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.faqs-page__contact:hover .faqs-page__contact-icon {
+  color: var(--giveon-primary);
+  background: #fff;
+}
+
+.faqs-page__contact-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.faqs-page__contact h3 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.faqs-page__contact-copy p {
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.faqs-page__contact-email {
+  margin: 20px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.faqs-page__contact-email a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.faqs-page__main {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.faqs-page__group {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  scroll-margin-top: 120px;
+}
+
+.faqs-page__heading {
+  margin: 0;
+  color: var(--giveon-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.faqs-page__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.faqs-page__accordion .accordion-item {
+  border: 1px solid var(--giveon-divider);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(27, 36, 54, 0.04);
+}
+
+.faqs-page__accordion .accordion-trigger {
+  min-height: 70px;
+  padding: 23px;
+  border-bottom: 1px solid transparent;
+  background: #fff;
+}
+
+.faqs-page__accordion .accordion-trigger[aria-expanded="true"] {
+  border-color: var(--giveon-divider);
+}
+
+.faqs-page__accordion .accordion-question {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--giveon-primary);
+}
+
+.faqs-page__accordion .accordion-icon,
+.faqs-page__accordion .accordion-trigger[aria-expanded="true"] .accordion-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--giveon-accent);
+  background: transparent;
+}
+
+.faqs-page__accordion .accordion-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.5;
+}
+
+.faqs-page__accordion .accordion-answer {
+  margin: 0;
+  padding: 23px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .faqs-page {
+    padding: 80px 0;
+  }
+
+  .faqs-page__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .faqs-page__sidebar {
+    position: static;
+    padding: 10px;
+  }
+
+  .faqs-page__contact {
+    min-height: 300px;
+    padding: 20px;
+  }
+
+  .faqs-page__main {
+    gap: 40px;
+  }
+
+  .faqs-page__group {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .faqs-page {
+    padding: 60px 0;
+  }
+
+  .faqs-page__nav {
+    padding: 5px 20px;
+  }
+
+  .faqs-page__contact {
+    min-height: auto;
+  }
+
+  .faqs-page__heading {
+    font-size: 28px;
+  }
+
+  .faqs-page__accordion {
+    gap: 20px;
+  }
+
+  .faqs-page__accordion .accordion-trigger {
+    min-height: 0;
+    padding: 12px 15px;
+  }
+
+  .faqs-page__accordion .accordion-question {
+    font-size: 16px;
+  }
+
+  .faqs-page__accordion .accordion-icon,
+  .faqs-page__accordion .accordion-trigger[aria-expanded="true"] .accordion-icon,
+  .faqs-page__accordion .accordion-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .faqs-page__accordion .accordion-answer {
+    padding: 12px 15px;
+  }
+}

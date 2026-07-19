@@ -1,0 +1,73 @@
+.theme-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(213, 63, 52, 0.18), transparent 55%),
+    var(--giveon-primary);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.theme-preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.theme-preloader__mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 7.5rem;
+  height: 7.5rem;
+}
+
+.theme-preloader__mark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--giveon-accent);
+  border-right-color: rgba(255, 255, 255, 0.35);
+  animation: awfca-preloader-spin 1s linear infinite;
+}
+
+.theme-preloader__logo {
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: contain;
+  border-radius: 50%;
+  animation: awfca-preloader-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes awfca-preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes awfca-preloader-pulse {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-preloader__mark::before,
+  .theme-preloader__logo {
+    animation: none;
+  }
+}

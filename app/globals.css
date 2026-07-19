@@ -1,26 +1,38 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@import "./styles/foundation.css";
+@import "./styles/eyebrow.css";
+@import "./styles/contact-note.css";
+@import "./styles/sections/hero.css";
+@import "./styles/sections/trust-strip.css";
+@import "./styles/sections/split-heading.css";
+@import "./styles/sections/about.css";
+@import "./styles/sections/services.css";
+@import "./styles/sections/why-choose.css";
+@import "./styles/sections/volunteers.css";
+@import "./styles/sections/projects.css";
+@import "./styles/sections/key-facts.css";
+@import "./styles/sections/core-features.css";
+@import "./styles/sections/testimonials.css";
+@import "./styles/sections/faq.css";
+@import "./styles/sections/blog.css";
+@import "./styles/sections/blog-detail.css";
+@import "./styles/footer.css";
+@import "./styles/effects.css";
+@import "./styles/preloader.css";
+@import "./styles/header.css";
+@import "./styles/buttons.css";
+@import "./styles/swiper-overrides.css";
+@import "./styles/sections/donation-banner.css";
+@import "./styles/sections/donate.css";
+@import "./styles/sections/page-shell.css";
+@import "./styles/sections/programs.css";
+@import "./styles/sections/about-page.css";
+@import "./styles/sections/volunteers-faqs.css";
+@import "./styles/sections/contact-error.css";
+@import "./styles/sections/testimonials-page.css";
+@import "./styles/sections/detail-pages.css";
+@import "./styles/sections/legal.css";
+@import "./styles/sections/reports.css";

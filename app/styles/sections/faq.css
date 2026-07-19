@@ -1,0 +1,279 @@
+/* FAQ */
+.faq-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 120px 0;
+  background: #fff;
+}
+
+.faq-section__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 48% 52%;
+  align-items: center;
+}
+
+.faq-media,
+.faq-media__inner {
+  position: relative;
+  min-width: 0;
+}
+
+.faq-image {
+  height: 695px;
+  border-radius: 20px;
+}
+
+.faq-image__media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faq-cta-shell {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 455px;
+  max-width: calc(100% - 40px);
+  padding: 10px 10px 0;
+  border-radius: 24px 24px 0 0;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.faq-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  color: #fff;
+  background: var(--giveon-primary);
+}
+
+.faq-cta h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.faq-cta p {
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.faq-content {
+  padding: 10px 10px 10px 35px;
+}
+
+.faq-title {
+  margin: 0 0 20px;
+  color: var(--giveon-primary);
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.faq-intro {
+  margin: 0 0 25px;
+  color: var(--giveon-text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.faq-accordion > .accordion-item {
+  margin-top: 0 !important;
+  border: 0;
+  border-radius: 14px;
+  background: var(--giveon-surface);
+}
+
+.faq-accordion .accordion-trigger {
+  min-height: 70px;
+  padding: 23px;
+  border-bottom: 1px solid transparent;
+  background: var(--giveon-surface);
+}
+
+.faq-accordion .accordion-trigger[aria-expanded="true"] {
+  border-color: var(--giveon-divider);
+}
+
+.faq-accordion .accordion-question {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.333;
+}
+
+.faq-accordion .accordion-icon {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  background: var(--giveon-accent);
+}
+
+.faq-accordion .accordion-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.faq-accordion .accordion-answer {
+  margin: 0;
+  padding: 23px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.faq-shape {
+  position: absolute;
+  z-index: 0;
+  width: 220px;
+  pointer-events: none;
+}
+
+.faq-shape--top {
+  top: -20px;
+  right: 0;
+  height: 240px;
+}
+
+.faq-shape--bottom {
+  bottom: -30px;
+  left: 30px;
+  height: 365px;
+}
+
+@media (max-width: 1023px) {
+  .faq-section {
+    padding: 60px 0;
+  }
+
+  .faq-section__grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .faq-media {
+    width: min(740px, 100%);
+    margin-inline: auto;
+  }
+
+  .faq-content {
+    padding: 10px;
+  }
+
+.faq-title {
+    margin-bottom: 15px;
+  }
+
+  .faq-intro {
+    margin-bottom: 20px;
+  }
+
+  .faq-accordion {
+    gap: 20px;
+  }
+
+  .faq-accordion .accordion-trigger {
+    min-height: 60px;
+    padding: 15px;
+  }
+
+  .faq-accordion .accordion-answer {
+    padding: 15px;
+  }
+
+  .faq-accordion .accordion-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .faq-shape--top {
+    top: -10px;
+    width: 150px;
+    height: 170px;
+  }
+
+  .faq-shape--bottom {
+    bottom: -20px;
+    left: 10px;
+    width: 140px;
+    height: 232px;
+  }
+}
+
+@media (max-width: 767px) {
+  .faq-image {
+    height: auto;
+    aspect-ratio: 605 / 695;
+  }
+
+  .faq-cta-shell {
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border-radius: 0;
+    transform: none;
+  }
+
+  .faq-cta {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .faq-cta p {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  .faq-accordion .accordion-trigger {
+    min-height: 50px;
+    padding: 12px 15px;
+  }
+
+  .faq-accordion .accordion-question {
+    font-size: 16px;
+  }
+
+  .faq-accordion .accordion-answer {
+    padding: 12px 15px;
+  }
+
+  .faq-accordion .accordion-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .faq-accordion .accordion-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .faq-shape--top {
+    width: 100px;
+    height: 110px;
+  }
+
+  .faq-shape--bottom {
+    bottom: -10px;
+    left: 10px;
+    width: 120px;
+    height: 200px;
+  }
+}

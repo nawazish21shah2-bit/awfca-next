@@ -1,0 +1,29 @@
+/* Shared contact / gift-note typography used by Services, Why Choose Us, Key Facts. */
+
+.section-contact-note,
+.services-contact,
+.why-contact,
+.facts-note {
+  width: 100%;
+  color: var(--giveon-primary);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.section-contact-note a,
+.services-contact a,
+.why-contact a,
+.facts-note a {
+  color: var(--giveon-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.section-contact-note a:hover,
+.services-contact a:hover,
+.why-contact a:hover,
+.facts-note a:hover {
+  color: var(--giveon-primary);
+}

@@ -1,0 +1,254 @@
+/* About page — shared shell and cross-section helpers */
+
+.about-page-hero,
+.about-page-intro,
+.about-page-approach,
+.about-page-trust,
+.about-page-why,
+.about-page-features,
+.about-page-causes,
+.about-page-story,
+.about-page-volunteers,
+.about-page-testimonials,
+.about-page-faq {
+  overflow: hidden;
+}
+
+.about-page-hero .container-site,
+.about-page-intro .container-site,
+.about-page-approach .container-site,
+.about-page-trust .container-site,
+.about-page-why .container-site,
+.about-page-features .container-site,
+.about-page-causes .container-site,
+.about-page-story .container-site,
+.about-page-volunteers .container-site,
+.about-page-testimonials .container-site,
+.about-page-faq .container-site {
+  max-width: 1300px;
+  padding-inline: 10px;
+}
+
+.about-page-intro__title,
+.about-page-why__title,
+.about-page-causes__title,
+.about-page-volunteers__title,
+.about-page-faq__title,
+.about-page-approach__title,
+.about-page-features__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4vw, 52px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.about-page-intro__text,
+.about-page-why__text {
+  margin: -10px 0 0;
+  color: var(--giveon-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.about-page-intro__feature-icon,
+.about-page-features__icon,
+.about-page-approach__icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--giveon-accent);
+  transition: background-color 0.3s ease;
+}
+
+.about-page-intro__feature:hover .about-page-intro__feature-icon,
+.about-page-features__card:hover .about-page-features__icon {
+  background: var(--giveon-primary);
+}
+
+.about-page-intro__feature-icon svg,
+.about-page-features__icon svg,
+.about-page-approach__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.about-page-intro__feature h3,
+.about-page-approach__card h3,
+.about-page-features__card h3 {
+  margin: 0;
+  color: var(--giveon-primary);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.about-page-intro__feature p,
+.about-page-approach__card p,
+.about-page-features__card p {
+  margin: 8px 0 0;
+  color: var(--giveon-text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-page-approach__heading,
+.about-page-features__heading {
+  width: min(720px, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about-page-approach__eyebrow,
+.about-page-features__eyebrow {
+  justify-content: center;
+  margin-bottom: 15px;
+  color: var(--giveon-primary);
+  background: var(--giveon-surface);
+}
+
+.about-page-approach__text,
+.about-page-features__text {
+  margin: 20px 0 0;
+  color: var(--giveon-text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-page-why__eyebrow,
+.about-page-causes__eyebrow,
+.about-page-volunteers__eyebrow {
+  margin: 0;
+  color: var(--giveon-primary);
+  background: #fff;
+}
+
+.about-page-causes__header,
+.about-page-volunteers__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.about-page-causes__header > div,
+.about-page-volunteers__header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.about-page-causes__intro,
+.about-page-volunteers__intro {
+  display: grid;
+  gap: 30px;
+  justify-items: start;
+  padding-left: 30px;
+}
+
+.about-page-causes__intro p,
+.about-page-volunteers__intro p {
+  margin: 0;
+  color: var(--giveon-text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-page-causes__note,
+.about-page-volunteers__note {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page-causes__note img,
+.about-page-volunteers__note img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-page-causes__note p,
+.about-page-volunteers__note p {
+  margin: 0;
+  color: var(--giveon-primary);
+  font-size: 16px;
+}
+
+.about-page-causes__note a,
+.about-page-volunteers__note a {
+  color: var(--giveon-accent);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.about-page-testimonial-card__stars svg,
+.about-page-faq__stars svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+@media (max-width: 1024px) {
+  .about-page-intro,
+  .about-page-approach,
+  .about-page-why,
+  .about-page-causes,
+  .about-page-volunteers,
+  .about-page-faq {
+    padding-block: 60px;
+  }
+
+  .about-page-intro__grid,
+  .about-page-why__inner,
+  .about-page-faq__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-page-intro__media,
+  .about-page-why__visual {
+    padding: 10px;
+  }
+
+  .about-page-approach__inner,
+  .about-page-features__inner,
+  .about-page-causes__inner,
+  .about-page-volunteers__inner {
+    gap: 20px;
+  }
+
+  .about-page-approach__grid,
+  .about-page-causes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .about-page-approach__grid,
+  .about-page-features__cards,
+  .about-page-features__stats,
+  .about-page-causes__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page-causes__header,
+  .about-page-volunteers__header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-page-causes__intro,
+  .about-page-volunteers__intro {
+    padding-left: 0;
+  }
+}

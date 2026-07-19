@@ -1,0 +1,203 @@
+/* About page — testimonials */
+
+.about-page-testimonials {
+  position: relative;
+  color: #fff;
+  background-color: var(--giveon-primary);
+  background-image: var(--about-testimonial-photo), url("/images/about/dark-section-bg-image.png");
+  background-position: left center, center;
+  background-repeat: no-repeat;
+  background-size: 50% 100%, cover;
+}
+
+.about-page-testimonials__overlay {
+  position: absolute;
+  inset: 0 0 0 50%;
+  background: var(--giveon-primary) url("/images/about/dark-section-bg-image.png") center / cover no-repeat;
+}
+
+.about-page-testimonials__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  min-height: 730px;
+  align-items: center;
+  padding-block: 60px;
+}
+
+.about-page-testimonials__heading {
+  align-self: center;
+  max-width: 550px;
+  padding: 40px;
+  border: 1px solid #ffffff1a;
+  border-radius: 20px;
+  background: #21293b80;
+  backdrop-filter: blur(10px);
+}
+
+.about-page-testimonials__label {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.about-page-testimonials__avatars {
+  display: flex;
+}
+
+.about-page-testimonials__avatars img {
+  width: 40px;
+  height: 40px;
+  margin-left: -15px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-page-testimonials__avatars img:first-child {
+  margin-left: 0;
+}
+
+.about-page-testimonials__eyebrow {
+  margin: 0;
+  padding: 0;
+  color: #fff !important;
+  background: transparent !important;
+}
+
+.about-page-testimonials__title {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(38px, 4vw, 52px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.about-page-testimonials__slider {
+  min-width: 0;
+  min-height: 730px;
+  padding: 60px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.about-page-testimonial-card {
+  position: relative;
+  display: flex;
+  min-height: 610px;
+  flex-direction: column;
+  color: var(--giveon-primary);
+}
+
+.about-page-testimonial-card__stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0;
+  color: var(--giveon-accent);
+}
+
+.about-page-testimonial-card__quote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  color: rgba(33, 41, 59, 0.1);
+}
+
+.about-page-testimonial-card p {
+  margin: 60px 0 30px;
+  color: var(--giveon-primary);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.about-page-testimonial-card__author {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 30px;
+  border-top: 1px solid var(--giveon-divider);
+}
+
+.about-page-testimonial-card__author img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-page-testimonial-card__author strong,
+.about-page-testimonial-card__author span {
+  display: block;
+}
+
+.about-page-testimonial-card__author strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.about-page-testimonial-card__author span {
+  margin-top: 4px;
+  color: var(--giveon-text);
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .about-page-testimonials__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: 60px;
+  }
+
+  .about-page-testimonials__heading {
+    display: flex;
+    min-height: 430px;
+    max-width: none;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .about-page-testimonials__slider {
+    min-height: auto;
+    padding: 30px;
+  }
+
+  .about-page-testimonial-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-page-testimonials {
+    background-size: cover, cover;
+  }
+
+  .about-page-testimonials__overlay {
+    inset: 0;
+    background: rgba(33, 41, 59, 0.72);
+  }
+
+  .about-page-testimonials__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: 60px;
+  }
+
+  .about-page-testimonials__heading,
+  .about-page-testimonials__slider {
+    padding: 20px;
+  }
+
+  .about-page-testimonials__heading {
+    min-height: 360px;
+  }
+
+  .about-page-testimonial-card p {
+    margin-top: 30px;
+    font-size: 16px;
+  }
+}

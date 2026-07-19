@@ -1,0 +1,12 @@
+/* About page styles — ordered section aggregator */
+@import "./about-page/shared.css";
+@import "./about-page/hero.css";
+@import "./about-page/intro.css";
+@import "./about-page/approach.css";
+@import "./about-page/why.css";
+@import "./about-page/features.css";
+@import "./about-page/causes.css";
+@import "./about-page/story.css";
+@import "./about-page/volunteers.css";
+@import "./about-page/testimonials.css";
+@import "./about-page/faq.css";

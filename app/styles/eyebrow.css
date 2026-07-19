@@ -1,0 +1,106 @@
+/* Shared section eyebrow — refined editorial label */
+
+.eyebrow-pill,
+.services-eyebrow,
+.why-eyebrow,
+.volunteers-eyebrow,
+.projects-eyebrow,
+.facts-eyebrow,
+.features-eyebrow,
+.testimonials-eyebrow,
+.about-eyebrow,
+.faq-eyebrow,
+.blog-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 9px 14px;
+  border-radius: 999px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+}
+
+.eyebrow-pill > span,
+.services-eyebrow > span,
+.why-eyebrow > span,
+.volunteers-eyebrow > span,
+.projects-eyebrow > span,
+.facts-eyebrow > span,
+.features-eyebrow > span,
+.testimonials-eyebrow > span,
+.about-eyebrow > span {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--giveon-accent);
+  box-shadow: 0 0 0 3px var(--giveon-glow);
+}
+
+.eyebrow-pill--accent,
+.services-eyebrow,
+.why-eyebrow,
+.volunteers-eyebrow,
+.projects-eyebrow,
+.facts-eyebrow,
+.features-eyebrow,
+.testimonials-eyebrow {
+  color: var(--giveon-accent);
+  background: color-mix(in srgb, var(--giveon-accent) 8%, var(--giveon-surface));
+}
+
+.eyebrow-pill--about,
+.about-eyebrow {
+  color: var(--giveon-accent);
+  background: #fff;
+  box-shadow: 0 1px 0 var(--giveon-divider);
+}
+
+.eyebrow-pill--muted,
+.faq-eyebrow {
+  color: var(--giveon-primary);
+  background: var(--giveon-surface);
+}
+
+.eyebrow-pill--blog,
+.blog-section__eyebrow {
+  color: var(--giveon-primary);
+  background: #fff;
+}
+
+.faq-eyebrow {
+  margin: 0 0 15px;
+}
+
+@media (max-width: 1024px) {
+  .services-eyebrow,
+  .why-eyebrow,
+  .volunteers-eyebrow,
+  .projects-eyebrow,
+  .facts-eyebrow,
+  .features-eyebrow,
+  .testimonials-eyebrow {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-eyebrow {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .faq-eyebrow {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+  }
+
+  .blog-section__eyebrow {
+    padding: 8px 12px;
+  }
+}

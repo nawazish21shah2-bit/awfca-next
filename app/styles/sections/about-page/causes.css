@@ -1,0 +1,107 @@
+/* About page — causes */
+
+.about-page-causes {
+  position: relative;
+  padding: 120px 0;
+  background: var(--giveon-surface);
+}
+
+.about-page-causes__shape {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 220px;
+  height: auto;
+  pointer-events: none;
+}
+
+.about-page-causes__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 40px;
+}
+
+.about-page-causes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.about-page-causes__card {
+  position: relative;
+  display: flex;
+  min-height: 480px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  overflow: hidden;
+  padding: 40px;
+  border-radius: 20px;
+  color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-page-causes__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #fff0 50%, #21293be6 100%);
+}
+
+.about-page-causes__tag,
+.about-page-causes__card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.about-page-causes__tag {
+  padding: 9px 16px;
+  border-radius: 100px;
+  color: #fff;
+  background: #ffffff1a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.about-page-causes__card-body h3 {
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ffffff1a;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.about-page-causes__link {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about-page-causes__link:hover {
+  color: var(--giveon-accent);
+}
+
+@media (max-width: 1024px) {
+  .about-page-causes__card {
+    min-height: 400px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-page-causes__card {
+    min-height: 360px;
+    padding: 20px;
+  }
+}

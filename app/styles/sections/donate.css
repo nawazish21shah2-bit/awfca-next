@@ -1,0 +1,238 @@
+/* Donate page */
+
+.donate-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 190px 0 88px;
+  color: #fff;
+  background:
+    radial-gradient(900px 480px at 12% 0%, rgba(224, 69, 58, 0.22), transparent 55%),
+    radial-gradient(700px 420px at 90% 20%, rgba(255, 255, 255, 0.06), transparent 50%),
+    linear-gradient(160deg, #141b2a 0%, var(--giveon-primary) 55%, #243149 100%);
+}
+
+.donate-hero__glow {
+  position: absolute;
+  right: -8%;
+  bottom: -40%;
+  width: min(48vw, 520px);
+  height: min(48vw, 520px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--giveon-glow), transparent 68%);
+  pointer-events: none;
+}
+
+.donate-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.donate-hero__brand {
+  margin: 0 0 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.donate-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 4.8vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.donate-hero__text {
+  max-width: 36rem;
+  margin: 1.2rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.donate-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1rem;
+  margin-top: 2rem;
+}
+
+.donate-body {
+  padding: 72px 0 110px;
+  background:
+    radial-gradient(700px 360px at 0% 0%, rgba(224, 69, 58, 0.04), transparent 55%),
+    var(--background);
+}
+
+.donate-body__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.donate-panel {
+  border-radius: 22px;
+  padding: 2rem;
+}
+
+.donate-panel--main {
+  background: #fff;
+  border: 1px solid var(--giveon-divider);
+  box-shadow: 0 18px 50px rgba(27, 36, 54, 0.07);
+}
+
+.donate-panel--aside {
+  color: #fff;
+  background:
+    radial-gradient(420px 240px at 100% 0%, rgba(224, 69, 58, 0.28), transparent 60%),
+    var(--giveon-primary);
+}
+
+.donate-panel__eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--giveon-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.donate-panel h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.donate-panel--main h2 {
+  color: var(--giveon-primary);
+}
+
+.donate-panel > p {
+  margin: 0.9rem 0 0;
+  line-height: 1.7;
+}
+
+.donate-panel--main > p {
+  color: var(--giveon-text);
+}
+
+.donate-panel--aside > p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.donate-panel__cta {
+  margin-top: 1.5rem;
+}
+
+.donate-points {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--giveon-divider);
+  list-style: none;
+}
+
+.donate-points li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  color: var(--giveon-text);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.donate-points svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 1.25rem;
+  margin-top: 0.15rem;
+  color: var(--giveon-accent);
+}
+
+.donate-points a {
+  color: var(--giveon-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.donate-contact {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+}
+
+.donate-contact dt {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.donate-contact dd {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.donate-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.donate-contact a:hover {
+  text-decoration: underline;
+}
+
+.donate-aside-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.75rem;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.donate-aside-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.donate-aside-link:hover {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 1023px) {
+  .donate-hero {
+    padding: 150px 0 64px;
+  }
+
+  .donate-body {
+    padding: 48px 0 80px;
+  }
+
+  .donate-body__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .donate-hero__actions .giveon-button {
+    justify-content: space-between;
+  }
+}
