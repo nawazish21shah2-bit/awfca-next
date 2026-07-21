@@ -1,8 +1,10 @@
 :root {
   --giveon-primary: #1b2436;
   --giveon-primary-soft: #2a354c;
-  --giveon-accent: #e0453a;
-  --giveon-accent-deep: #c7382e;
+  /* --giveon-accent: #e0453a;
+  --giveon-accent-deep: #c7382e; */
+  --giveon-accent: #AB1018;
+  --giveon-accent-deep: #8B0D14;
   --giveon-text: #5a6270;
   --giveon-surface: #f2f4f7;
   --giveon-surface-warm: #eef1f5;

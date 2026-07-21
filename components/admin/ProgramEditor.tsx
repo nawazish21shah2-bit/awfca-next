@@ -9,7 +9,7 @@ import {
   softDeleteProgram,
   uploadProgramImages,
 } from "@/lib/cms/actions";
-import type { Program, ProgramImage } from "@/lib/cms/types";
+import type { Program, ProgramImage, ProgramBody } from "@/lib/cms/types";
 
 type GalleryDraft = {
   key: string;
@@ -25,6 +25,10 @@ function toDrafts(images: ProgramImage[] | undefined): GalleryDraft[] {
     media_asset_id: item.media_asset_id,
     alt_text: item.alt_text,
   }));
+}
+
+function parseBody(body: ProgramBody | undefined): ProgramBody {
+  return body ?? {};
 }
 
 export function ProgramEditor({
@@ -45,6 +49,19 @@ export function ProgramEditor({
     toDrafts(program?.gallery),
   );
   const [uploading, setUploading] = useState(false);
+  
+  // Dynamic content state
+  const [body, setBody] = useState<ProgramBody>(() => parseBody(program?.body as ProgramBody));
+  const [expectTitle, setExpectTitle] = useState(body.expect?.title ?? "What to expect");
+  const [expectText, setExpectText] = useState(body.expect?.text ?? "");
+  const [expectItems, setExpectItems] = useState(body.expect?.items ?? []);
+  const [howTitle, setHowTitle] = useState(body.how?.title ?? "How we work");
+  const [howText, setHowText] = useState(body.how?.text ?? "");
+  const [howItems, setHowItems] = useState(body.how?.items ?? []);
+  const [fullContent, setFullContent] = useState(body.content ?? []);
+  const [faqTitle, setFaqTitle] = useState(body.faq?.title ?? "Frequently asked questions");
+  const [faqText, setFaqText] = useState(body.faq?.text ?? "");
+  const [faqItems, setFaqItems] = useState(body.faq?.items ?? []);
 
   const canSave = useMemo(() => !pending && !uploading, [pending, uploading]);
 
@@ -106,6 +123,25 @@ export function ProgramEditor({
     setError(null);
     startTransition(async () => {
       try {
+        const programBody: ProgramBody = {
+          expect: {
+            title: expectTitle,
+            text: expectText,
+            items: expectItems.filter(item => item.title && item.text),
+          },
+          how: {
+            title: howTitle,
+            text: howText,
+            items: howItems.filter(item => item.question && item.answer),
+          },
+          content: fullContent.filter(text => text.trim()),
+          faq: {
+            title: faqTitle,
+            text: faqText,
+            items: faqItems.filter(item => item.question && item.answer),
+          },
+        };
+
         await saveProgram({
           id: program?.id,
           site_id: formData.get("scope") === "shared" ? null : siteId,
@@ -119,6 +155,7 @@ export function ProgramEditor({
             .split("\n")
             .map((s) => s.trim())
             .filter(Boolean),
+          body: programBody,
           status: formData.get("status") === "published" ? "published" : "draft",
           gallery: gallery.map((item, index) => ({
             image_url: item.image_url,
@@ -295,6 +332,217 @@ export function ProgramEditor({
         ) : (
           <p className="admin-hint">No gallery images yet.</p>
         )}
+      </fieldset>
+
+      <fieldset className="admin-fieldset">
+        <legend>What to Expect</legend>
+        <p className="admin-hint">
+          Dynamic section that appears on the program detail page. Customize per program.
+        </p>
+        <label>
+          Section title
+          <input
+            value={expectTitle}
+            onChange={(e) => setExpectTitle(e.target.value)}
+            placeholder="What to expect"
+          />
+        </label>
+        <label>
+          Section text
+          <textarea
+            value={expectText}
+            onChange={(e) => setExpectText(e.target.value)}
+            placeholder="Supporters can expect..."
+            rows={2}
+          />
+        </label>
+        <div>
+          <label>Items</label>
+          {expectItems.map((item, index) => (
+            <div key={index} className="admin-form__row" style={{ marginBottom: '8px' }}>
+              <input
+                value={item.title}
+                onChange={(e) => {
+                  const next = [...expectItems];
+                  next[index].title = e.target.value;
+                  setExpectItems(next);
+                }}
+                placeholder="Title"
+                style={{ flex: 1 }}
+              />
+              <input
+                value={item.text}
+                onChange={(e) => {
+                  const next = [...expectItems];
+                  next[index].text = e.target.value;
+                  setExpectItems(next);
+                }}
+                placeholder="Description"
+                style={{ flex: 2 }}
+              />
+              <button
+                type="button"
+                className="admin-btn admin-btn--danger admin-btn--sm"
+                onClick={() => setExpectItems(expectItems.filter((_, i) => i !== index))}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="admin-btn admin-btn--ghost admin-btn--sm"
+            onClick={() => setExpectItems([...expectItems, { title: '', text: '' }])}
+          >
+            Add item
+          </button>
+        </div>
+      </fieldset>
+
+      <fieldset className="admin-fieldset">
+        <legend>How We Work</legend>
+        <p className="admin-hint">
+          Process explanation section with accordion items.
+        </p>
+        <label>
+          Section title
+          <input
+            value={howTitle}
+            onChange={(e) => setHowTitle(e.target.value)}
+            placeholder="How we work"
+          />
+        </label>
+        <label>
+          Section text
+          <textarea
+            value={howText}
+            onChange={(e) => setHowText(e.target.value)}
+            placeholder="We follow a structured approach..."
+            rows={2}
+          />
+        </label>
+        <div>
+          <label>Process steps (question/answer pairs for accordion)</label>
+          {howItems.map((item, index) => (
+            <div key={index} className="admin-form__row" style={{ marginBottom: '8px' }}>
+              <input
+                value={item.question}
+                onChange={(e) => {
+                  const next = [...howItems];
+                  next[index].question = e.target.value;
+                  setHowItems(next);
+                }}
+                placeholder="Step title (e.g., 01. Identify Needs)"
+                style={{ flex: 1 }}
+              />
+              <input
+                value={item.answer}
+                onChange={(e) => {
+                  const next = [...howItems];
+                  next[index].answer = e.target.value;
+                  setHowItems(next);
+                }}
+                placeholder="Step description"
+                style={{ flex: 2 }}
+              />
+              <button
+                type="button"
+                className="admin-btn admin-btn--danger admin-btn--sm"
+                onClick={() => setHowItems(howItems.filter((_, i) => i !== index))}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="admin-btn admin-btn--ghost admin-btn--sm"
+            onClick={() => setHowItems([...howItems, { question: '', answer: '' }])}
+          >
+            Add step
+          </button>
+        </div>
+      </fieldset>
+
+      <fieldset className="admin-fieldset">
+        <legend>Full Program Content</legend>
+        <p className="admin-hint">
+          Detailed program description (one paragraph per line). This appears in the main content area.
+        </p>
+        <label>
+          Content paragraphs
+          <textarea
+            value={fullContent.join('\n')}
+            onChange={(e) => setFullContent(e.target.value.split('\n').filter(Boolean))}
+            placeholder="Enter full program description, one paragraph per line..."
+            rows={6}
+          />
+        </label>
+      </fieldset>
+
+      <fieldset className="admin-fieldset">
+        <legend>Program FAQs</legend>
+        <p className="admin-hint">
+          Program-specific frequently asked questions.
+        </p>
+        <label>
+          Section title
+          <input
+            value={faqTitle}
+            onChange={(e) => setFaqTitle(e.target.value)}
+            placeholder="Frequently asked questions"
+          />
+        </label>
+        <label>
+          Section text
+          <textarea
+            value={faqText}
+            onChange={(e) => setFaqText(e.target.value)}
+            placeholder="Learn how AWFCA programs work..."
+            rows={2}
+          />
+        </label>
+        <div>
+          <label>FAQ items</label>
+          {faqItems.map((item, index) => (
+            <div key={index} className="admin-form__row" style={{ marginBottom: '8px' }}>
+              <input
+                value={item.question}
+                onChange={(e) => {
+                  const next = [...faqItems];
+                  next[index].question = e.target.value;
+                  setFaqItems(next);
+                }}
+                placeholder="Question"
+                style={{ flex: 1 }}
+              />
+              <input
+                value={item.answer}
+                onChange={(e) => {
+                  const next = [...faqItems];
+                  next[index].answer = e.target.value;
+                  setFaqItems(next);
+                }}
+                placeholder="Answer"
+                style={{ flex: 2 }}
+              />
+              <button
+                type="button"
+                className="admin-btn admin-btn--danger admin-btn--sm"
+                onClick={() => setFaqItems(faqItems.filter((_, i) => i !== index))}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="admin-btn admin-btn--ghost admin-btn--sm"
+            onClick={() => setFaqItems([...faqItems, { question: '', answer: '' }])}
+          >
+            Add FAQ
+          </button>
+        </div>
       </fieldset>
 
       <fieldset className="admin-fieldset">

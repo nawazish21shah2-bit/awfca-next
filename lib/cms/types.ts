@@ -100,6 +100,41 @@ export type ProgramImage = {
   deleted_at: string | null;
 };
 
+export type ProgramExpectItem = {
+  title: string;
+  text: string;
+};
+
+export type ProgramHowItem = {
+  question: string;
+  answer: string;
+};
+
+export type ProgramFaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type ProgramBody = {
+  expect?: {
+    title?: string;
+    text?: string;
+    items?: ProgramExpectItem[];
+  };
+  how?: {
+    title?: string;
+    text?: string;
+    items?: ProgramHowItem[];
+  };
+  content?: string[];
+  faq?: {
+    title?: string;
+    text?: string;
+    items?: ProgramFaqItem[];
+  };
+  gallery?: string[];
+};
+
 export type Program = {
   id: string;
   site_id: string | null;
@@ -111,7 +146,7 @@ export type Program = {
   image_url: string | null;
   image_asset_id: string | null;
   summary: string[];
-  body: Record<string, unknown>;
+  body: ProgramBody;
   seo_title: string | null;
   seo_description: string | null;
   status: PublishStatus;

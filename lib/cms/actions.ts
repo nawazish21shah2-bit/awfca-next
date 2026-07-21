@@ -121,6 +121,7 @@ export async function saveProgram(input: {
   image_url?: string | null;
   image_asset_id?: string | null;
   summary: string[];
+  body?: Record<string, unknown>;
   status: "draft" | "published";
   sort_order?: number;
   gallery?: ProgramGalleryInput[];
@@ -129,7 +130,7 @@ export async function saveProgram(input: {
   if (!assertSiteAccess(session, input.site_id)) throw new Error("Forbidden");
   const supabase = await createClient();
   const slug = input.slug?.trim() || slugify(input.title);
-  const { gallery, ...rest } = input;
+  const { gallery, body: inputBody, ...rest } = input;
 
   let existingBody: Record<string, unknown> = {};
   if (input.id) {
@@ -141,16 +142,19 @@ export async function saveProgram(input: {
     existingBody = (existing?.body as Record<string, unknown>) ?? {};
   }
 
+  // Merge existing body with new body content, preserving gallery if not provided
+  const mergedBody = {
+    ...existingBody,
+    ...(inputBody ?? {}),
+    ...(gallery !== undefined
+      ? { gallery: gallery.map((item) => item.image_url) }
+      : {}),
+  };
+
   const payload = {
     ...rest,
     slug,
-    body:
-      gallery !== undefined
-        ? {
-            ...existingBody,
-            gallery: gallery.map((item) => item.image_url),
-          }
-        : existingBody,
+    body: mergedBody,
     updated_by: session.user.id,
     created_by: session.user.id,
   };

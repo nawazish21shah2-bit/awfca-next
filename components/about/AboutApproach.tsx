@@ -90,6 +90,7 @@ export function AboutApproach() {
             </p>
           </div>
 
+<div className="about-page-trust__content">
           <div className="about-page-trust__users">
             <p>
               {trust.trustedText} <strong>{trust.trustedCount}</strong>{" "}
@@ -104,6 +105,7 @@ export function AboutApproach() {
               ))}
             </div>
             <strong>{trust.rating}</strong>
+          </div>
           </div>
         </FadeInUp>
       </div>

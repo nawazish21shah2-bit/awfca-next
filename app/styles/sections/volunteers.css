@@ -42,6 +42,7 @@
   gap: 10px;
   border-radius: 30px;
   background: var(--giveon-surface);
+  padding:  0.7rem;
 }
 
 .volunteer-card__image {
@@ -174,7 +175,7 @@
 
 .group:hover .volunteer-socials,
 .volunteer-card__share:focus-within .volunteer-socials {
-  visibility: visible;
+  visibility: hidden;
   opacity: 1;
   transform: translateY(-50%) scaleX(1);
 }

@@ -78,10 +78,18 @@
 }
 
 .about-page-trust {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
+  /* display: grid;
+  grid-template-columns: 1fr auto auto; */
   gap: 15px;
   align-items: center;
+  margin-top: 10px;
+}
+
+.about-page-trust__content {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -94,7 +102,7 @@
 }
 
 .about-page-trust__quote {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .about-page-trust__avatar {

@@ -37,6 +37,7 @@ export function AboutVolunteers() {
         </div>
 
         <FadeInUp delay={120} className="about-page-volunteers__slider">
+          <div className="about-page-volunteers__slider-container">
           <Swiper
             modules={[Autoplay, Pagination]}
             loop
@@ -61,6 +62,7 @@ export function AboutVolunteers() {
               </SwiperSlide>
             ))}
           </Swiper>
+          </div>
         </FadeInUp>
 
         <FadeInUp delay={200} className="about-page-volunteers__note">

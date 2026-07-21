@@ -145,6 +145,11 @@
   gap: 15px;
 }
 
+.about-page-volunteers__slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .about-page-causes__intro,
 .about-page-volunteers__intro {
   display: grid;

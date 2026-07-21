@@ -95,7 +95,7 @@
 
 .about-page-volunteer-card:hover .about-page-volunteer-card__socials {
   opacity: 1;
-  visibility: visible;
+  visibility: hidden;
   transform: translateY(0);
 }
 
@@ -143,6 +143,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 30px;
 }
 
 .about-page-volunteers__slider .swiper-pagination-bullet {

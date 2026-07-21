@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
+import { Check } from "lucide-react";
 import { hero } from "@/data/home";
 import { Button } from "@/components/ui/Button";
 
@@ -58,7 +59,7 @@ export function Hero() {
       if (!section) return;
       const rect = section.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      media.style.transform = `translate3d(0, ${window.scrollY * 0.18}px, 0) scale(1.06)`;
+      media.style.transform = `translate3d(0, ${window.scrollY * 0.51}px, 0) scale(1.06)`;
     };
     const onScroll = () => {
       if (!frame) frame = window.requestAnimationFrame(updateParallax);
@@ -124,7 +125,25 @@ export function Hero() {
               {hero.secondaryCta.label}
             </Button>
           </div>
+
         </div>
+          <div className="hero-benefits hero-reveal hero-reveal--benefits">
+            {hero.benefits.map((benefit, index) => (
+              <article
+                key={benefit.title}
+                className="hero-benefits__item"
+                style={{ "--benefit-index": index } as CSSProperties}
+              >
+                <div className="hero-benefits__title">
+                  <div className="hero-benefits__icon">
+                    <Check className="hero-benefits__check" />
+                  </div>
+                  <h2>{benefit.title}</h2>
+                </div>
+                <p>{benefit.text}</p>
+              </article>
+            ))}
+          </div>
       </div>
     </section>
   );

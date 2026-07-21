@@ -37,8 +37,9 @@ export const programsPage = {
       title: "Student Scholarship: Breaking Barriers, Building Futures",
       image: "/images/awfca/programs/student-scholarship.jpg",
       summary: [
-        "Our Student Scholarship program helps deserving students access quality education by covering tuition fees, books, school uniforms, and academic supplies.",
-        "We also support extracurricular sports activities that promote physical and mental well-being, helping students focus on their dreams without financial stress.",
+        "At AWFCA, we believe that every child deserves access to quality education, regardless of financial background. Our Student Scholarship program provides deserving students with essential support, covering tuition fees, books, school uniforms, and academic supplies, ensuring they can pursue their education without financial stress.",
+        "This initiative not only helps children stay in school but also encourages them to achieve their full potential without worrying about basic necessities. In addition to academics, we also support extracurricular sports activities, promoting physical and mental well-being for a well-rounded learning experience.",
+        "By removing financial barriers and nurturing talent and confidence, we empower students to focus on their dreams, excel in their studies, and build a brighter future for themselves and their communities.",
       ],
     },
     {
@@ -59,8 +60,9 @@ export const programsPage = {
       title: "Mobile Health Unit",
       image: "/images/awfca/programs/mobile-health.jpg",
       summary: [
-        "Our Mobile Health Unit brings free medical care to underserved communities, including outreach in South Punjab.",
-        "Services include check-ups, medicines, and prevention education so families can access care closer to where they live.",
+        "Through our Mobile Health Unit, we bring hope and healing to the underserved communities of South Punjab, ensuring that no one is deprived of essential healthcare due to financial or geographical barriers.",
+        "Our mission goes beyond just providing free medical check-ups, consultations, and treatments—we strive to educate individuals about preventive care, empowering them to take charge of their health. Our dedicated team of doctors and healthcare professionals works tirelessly to diagnose illnesses, distribute medicines, and offer compassionate care, treating each patient with dignity and respect.",
+        "By reaching the most vulnerable, we are not just offering medical aid—we are building healthier, stronger communities for a better tomorrow.",
       ],
     },
     {

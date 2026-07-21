@@ -1,13 +1,9 @@
+"use client";
+
 import Image from "next/image";
-import { MessageCircle, Users, Maximize2 } from "lucide-react";
+import { Maximize2, MessageCircle, Users } from "lucide-react";
 import { programsPage } from "@/data/programs";
-import { getRequestSite } from "@/lib/cms/site";
-import {
-  getPublishedProgram,
-  getPublishedPrograms,
-  getPublishedFaqItems,
-} from "@/lib/cms/content";
-import { toProgramCard } from "@/lib/cms/view-models";
+import { type ProgramCardModel } from "@/lib/cms/view-models";
 import { DetailSidebar } from "@/components/ui/DetailSidebar";
 import { Accordion } from "@/components/ui/Accordion";
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
@@ -15,46 +11,32 @@ import { FadeInUp } from "@/components/effects/FadeInUp";
 import { ProgramGallery } from "@/components/programs/ProgramGallery";
 import { ImageModal } from "@/components/ui/ImageModal";
 import type { ProgramBody } from "@/lib/cms/types";
+import { useState } from "react";
+import { LucideIcon } from "lucide-react";
 
-type Props = {
-  slug: string;
-};
+interface ProgramDetailClientProps {
+  program: ProgramCardModel;
+  allPrograms: ProgramCardModel[];
+  expectSection: ProgramBody["expect"];
+  howSection: ProgramBody["how"];
+  fullContent: string[];
+  faqSection: ProgramBody["faq"];
+  programFaqs: { question: string; answer: string }[];
+  galleryImages: string[];
+}
 
-const expectIcons = [MessageCircle, Users];
-
-export async function ProgramDetail({ slug }: Props) {
-  const site = await getRequestSite();
-  const programRow = await getPublishedProgram(site.id, slug);
-  if (!programRow) return null;
-
-  const program = toProgramCard(programRow);
-  const allPrograms = (await getPublishedPrograms(site.id)).map(toProgramCard);
-  const homeFaqs = (await getPublishedFaqItems(site.id))
-    .filter((f) => f.placement === "home" || f.placement === "both")
-    .map((f) => ({ question: f.question, answer: f.answer }));
-
-  const body = programRow.body as ProgramBody;
-  const { detail } = programsPage;
-  
-  // Use dynamic content if available, otherwise fall back to static
-  const expectSection = body.expect ? body.expect : {
-    title: detail.expect.title,
-    text: detail.expect.text,
-    items: [...detail.expect.items]
-  };
-  const howSection = body.how ? body.how : {
-    title: detail.how.title,
-    text: detail.how.text,
-    items: [...detail.how.items]
-  };
-  const fullContent = body.content || program.summary;
-  const faqSection = body.faq ? body.faq : {
-    title: detail.faq.title,
-    text: detail.faq.text
-  };
-  const programFaqs = body.faq?.items || homeFaqs;
-  
-  const galleryImages = program.gallery.filter((src) => src !== program.image);
+export function ProgramDetailClient({
+  program,
+  allPrograms,
+  expectSection,
+  howSection,
+  fullContent,
+  faqSection,
+  programFaqs,
+  galleryImages,
+}: ProgramDetailClientProps) {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  const expectIcons = [MessageCircle, Users];
 
   return (
     <section className="program-detail">
@@ -64,7 +46,7 @@ export async function ProgramDetail({ slug }: Props) {
           items={allPrograms.slice(0, 8).map((item) => ({
             href: `/programs/${item.slug}`,
             label: item.navLabel,
-            current: item.slug === slug,
+            current: item.slug === program.slug,
           }))}
           contact={programsPage.contact}
         />
@@ -80,7 +62,17 @@ export async function ProgramDetail({ slug }: Props) {
                   height={800}
                   sizes="(max-width: 1024px) 100vw, 66vw"
                   priority
+                  className="cursor-pointer"
+                  onClick={() => setModalImage({ src: program.image, alt: program.title })}
                 />
+                <button
+                  type="button"
+                  className="absolute top-4 right-4 bg-white/90 hover:bg-white text-primary p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  onClick={() => setModalImage({ src: program.image, alt: program.title })}
+                  aria-label="View full-size image"
+                >
+                  <Maximize2 size={20} />
+                </button>
               </div>
             </FadeInUp>
 
@@ -183,6 +175,15 @@ export async function ProgramDetail({ slug }: Props) {
           )}
         </div>
       </div>
+      
+      {modalImage && (
+        <ImageModal
+          src={modalImage.src}
+          alt={modalImage.alt}
+          isOpen={!!modalImage}
+          onClose={() => setModalImage(null)}
+        />
+      )}
     </section>
   );
 }

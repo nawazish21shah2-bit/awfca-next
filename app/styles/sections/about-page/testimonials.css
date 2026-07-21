@@ -7,13 +7,14 @@
   background-image: var(--about-testimonial-photo), url("/images/about/dark-section-bg-image.png");
   background-position: left center, center;
   background-repeat: no-repeat;
-  background-size: 50% 100%, cover;
+  background-size: cover;
 }
 
 .about-page-testimonials__overlay {
   position: absolute;
-  inset: 0 0 0 50%;
-  background: var(--giveon-primary) url("/images/about/dark-section-bg-image.png") center / cover no-repeat;
+  inset: 0;
+  /* background: var(--giveon-primary) url("/images/about/dark-section-bg-image.png") center / cover no-repeat; */
+  background: linear-gradient(#0f142000 0%, #0f1420e6 100%);
 }
 
 .about-page-testimonials__inner {
@@ -28,13 +29,13 @@
 }
 
 .about-page-testimonials__heading {
-  align-self: center;
+  align-self: end;
   max-width: 550px;
-  padding: 40px;
-  border: 1px solid #ffffff1a;
+  padding:  40px 0;
+  /* border: 1px solid #ffffff1a; */
   border-radius: 20px;
-  background: #21293b80;
-  backdrop-filter: blur(10px);
+  /* background: #21293b80; */
+  /* backdrop-filter: blur(10px); */
 }
 
 .about-page-testimonials__label {

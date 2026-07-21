@@ -221,7 +221,7 @@ export const aboutPage = {
   testimonials: {
     eyebrow: "What People Say",
     title: "Building trust through real experiences",
-    background: "/images/awfca/about/testimonials-bg.jpg",
+    background: "/images/awfca/about/testimonials-hunger-relief-3.jpg",
     avatars: [
       "/images/awfca/team/abdul-hafeez-khan.png",
       "/images/awfca/team/awais-riaz.png",

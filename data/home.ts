@@ -2,7 +2,7 @@ export const hero = {
   brand: "AWFCA",
   brandFull: "Arrahman Welfare Foundation Canada",
   title: "Hope that reaches families who need it most",
-  text: "A CRA-registered Canadian charity delivering food, education, healthcare, and emergency relief with compassion and accountability.",
+  text: "A CRA-registered Canadian charity delivering food, education, healthcare, and emergency relief with compassion and poverty relief.",
   cta: { label: "Donate Now", href: "/donate" },
   secondaryCta: { label: "Explore Programs", href: "/programs" },
   counter: { value: 90, suffix: "%", label: "Funds Reach Direct Aid" },
@@ -20,7 +20,8 @@ export const hero = {
       text: "Your support helps deliver food packages, scholarships, medical care, and emergency relief.",
     },
   ],
-  bg: "/images/awfca/home/food-bank.jpg",
+  // bg: "/images/awfca/home/food-bank.jpg",
+  bg: "/images/awfca/home/hero-bg-image-silver.jpg",
 };
 
 export const about = {
