@@ -176,7 +176,8 @@
 
 @media (max-width: 767px) {
   .about-page-story {
-    min-height: 520px;
+    min-height: 450px;
+    padding: 40px 0;
   }
 
   .about-page-story__inner {
@@ -185,12 +186,42 @@
     text-align: center;
   }
 
+  .about-page-story__copy {
+    max-width: 100%;
+  }
+
   .about-page-story__eyebrow {
     margin-inline: auto;
+  }
+
+  .about-page-story__title {
+    font-size: clamp(28px, 6vw, 38px);
+  }
+
+  .about-page-story__copy p {
+    font-size: 15px;
   }
 
   .about-page-story__play {
     width: 90px;
     height: 90px;
+  }
+
+  .about-page-story__circle text {
+    font-size: 10px;
+  }
+
+  .about-page-story__button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .about-page-story__button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .about-page-story__frame {
+    border-radius: 12px;
   }
 }

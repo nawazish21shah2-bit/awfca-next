@@ -91,16 +91,45 @@
   .about-page-hero {
     padding-block: 140px 80px;
   }
+
+  .about-page-hero__inner {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 767px) {
   .about-page-hero {
-    padding-block: 120px 64px;
+    padding-block: 100px 50px;
+  }
+
+  .about-page-hero__inner {
+    text-align: center;
+  }
+
+  .about-page-hero__brand {
+    font-size: 0.7rem;
+  }
+
+  .about-page-hero__title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .about-page-hero__breadcrumbs {
+    justify-content: center;
+  }
+
+  .about-page-hero__breadcrumbs ol {
+    font-size: 0.85rem;
   }
 
   .about-page-hero__overlay {
     background:
       linear-gradient(180deg, rgba(15, 20, 32, 0.55), rgba(15, 20, 32, 0.86)),
       linear-gradient(90deg, rgba(15, 20, 32, 0.55), transparent 70%);
+  }
+
+  .about-page-hero__glow {
+    width: min(70vw, 400px);
+    height: min(70vw, 400px);
   }
 }

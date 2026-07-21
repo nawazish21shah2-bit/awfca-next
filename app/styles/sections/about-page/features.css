@@ -104,6 +104,15 @@
     padding-top: 60px;
   }
 
+  .about-page-features__inner {
+    gap: 30px;
+  }
+
+  .about-page-features__cards,
+  .about-page-features__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .about-page-features__stats-shell {
     padding: 10px 10px 0;
   }
@@ -115,12 +124,45 @@
 }
 
 @media (max-width: 767px) {
+  .about-page-features {
+    padding-top: 40px;
+  }
+
+  .about-page-features__cards,
+  .about-page-features__stats {
+    grid-template-columns: 1fr;
+  }
+
   .about-page-features__card {
     grid-template-columns: 44px 1fr;
+    gap: 12px;
   }
 
   .about-page-features__stats {
     gap: 30px;
     padding: 20px;
+  }
+
+  .about-page-features__stat-icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 15px;
+  }
+
+  .about-page-features__stat-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .about-page-features__counter-value {
+    font-size: 32px !important;
+  }
+
+  .about-page-features__stat h3 {
+    font-size: 18px;
+  }
+
+  .about-page-features__stat p {
+    font-size: 14px;
   }
 }

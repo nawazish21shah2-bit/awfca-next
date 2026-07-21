@@ -66,6 +66,12 @@ export const services = {
       text: "Orphan support, New Beginnings, and community campaigns that restore dignity and hope.",
       href: "/services/social-welfare-and-community-support-programs",
     },
+    {
+      slug: "religious-and-charitable-giving-programs",
+      title: "Religious & Charitable Giving",
+      text: "Zakat, Sadaqah, Fidyaa, Qurbani, and seasonal giving opportunities for spiritual fulfillment.",
+      href: "/services/religious-and-charitable-giving-programs",
+    },
   ],
 };
 

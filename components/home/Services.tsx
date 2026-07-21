@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, GraduationCap, HeartPulse, Utensils } from "lucide-react";
+import { ArrowUpRight, GraduationCap, HeartPulse, Utensils, HandHeart } from "lucide-react";
 import { services } from "@/data/home";
 import { site } from "@/data/site";
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { FadeInUp } from "@/components/effects/FadeInUp";
 
-const icons = [GraduationCap, HeartPulse, Utensils];
+const icons = [HeartPulse, GraduationCap, Utensils, HandHeart];
 
 export function Services() {
   return (

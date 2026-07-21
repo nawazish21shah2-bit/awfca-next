@@ -161,13 +161,53 @@
   background: var(--giveon-accent);
 }
 
+@media (max-width: 1024px) {
+  .about-page-volunteers {
+    padding: 60px 0;
+  }
+
+  .about-page-volunteers__inner {
+    gap: 30px;
+  }
+}
+
 @media (max-width: 767px) {
+  .about-page-volunteers {
+    padding: 40px 0;
+  }
+
+  .about-page-volunteers__inner {
+    gap: 20px;
+  }
+
+  .about-page-volunteers__slider {
+    padding-bottom: 40px;
+  }
+
   .about-page-volunteer-card__overlay {
     padding: 20px;
+  }
+
+  .about-page-volunteer-card__info a {
+    font-size: 1.1rem;
+  }
+
+  .about-page-volunteer-card__info p {
+    font-size: 13px;
   }
 
   .about-page-volunteer-card__socials {
     top: 20px;
     right: 20px;
+  }
+
+  .about-page-volunteer-card__socials a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .about-page-volunteer-card__socials svg {
+    width: 16px;
+    height: 16px;
   }
 }
