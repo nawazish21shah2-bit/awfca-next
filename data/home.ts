@@ -5,7 +5,7 @@ export const hero = {
   text: "A CRA-registered Canadian charity delivering food, education, healthcare, and emergency relief with compassion and poverty relief.",
   cta: { label: "Donate Now", href: "/donate" },
   secondaryCta: { label: "Explore Programs", href: "/programs" },
-  counter: { value: 90, suffix: "%", label: "Funds Reach Direct Aid" },
+  counter: { label: "Funds Reach Direct Aid" },
   benefits: [
     {
       title: "Transparent Giving",
@@ -83,7 +83,7 @@ export const whyChooseUs = {
   items: [
     {
       title: "Direct Aid Focus",
-      text: "Around 90% of donations fund direct aid that lifts families from poverty each year.",
+      text: "Donations fund direct aid that lifts families from poverty each year.",
     },
     {
       title: "CRA-Registered Charity",

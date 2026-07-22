@@ -2,9 +2,18 @@ import type { CSSProperties } from "react";
 import { hero } from "@/data/home";
 import { Counter } from "@/components/ui/Counter";
 
+type CounterWithLabel = { label: string };
+type CounterWithValue = { value: number; suffix: string; label: string };
+
 type Props = {
-  counter?: { value: number; suffix: string; label: string };
+  counter?: CounterWithLabel | CounterWithValue;
 };
+
+function isCounterWithValue(
+  counter: CounterWithLabel | CounterWithValue
+): counter is CounterWithValue {
+  return "value" in counter && typeof counter.value === "number";
+}
 
 export function TrustStrip({ counter }: Props) {
   const heroCounter = counter ?? hero.counter;
@@ -13,13 +22,19 @@ export function TrustStrip({ counter }: Props) {
     <section className="trust-strip" aria-label="Why give with AWFCA">
       <div className="container-site trust-strip__inner">
         <div className="trust-strip__proof">
-          <Counter
-            value={heroCounter.value}
-            suffix={heroCounter.suffix}
-            label={heroCounter.label}
-            valueClassName="trust-strip__counter-value"
-            className="trust-strip__counter"
-          />
+          {isCounterWithValue(heroCounter) ? (
+            <Counter
+              value={heroCounter.value}
+              suffix={heroCounter.suffix}
+              label={heroCounter.label}
+              valueClassName="trust-strip__counter-value"
+              className="trust-strip__counter"
+            />
+          ) : (
+            <div className="trust-strip__counter">
+              <p className="trust-strip__counter-label">{heroCounter.label}</p>
+            </div>
+          )}
         </div>
         <div className="trust-strip__benefits">
           {hero.benefits.map((benefit, index) => (

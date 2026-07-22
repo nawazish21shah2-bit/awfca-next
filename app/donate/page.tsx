@@ -59,7 +59,7 @@ export default function DonatePage() {
               <li>
                 <HeartHandshake aria-hidden />
                 <span>
-                  Around 90% of donations are directed toward direct aid for
+                  Donations are directed toward direct aid for
                   families and communities in need.
                 </span>
               </li>
