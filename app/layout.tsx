@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Preloader } from "@/components/effects/Preloader";
 import { MagicCursor } from "@/components/effects/MagicCursor";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -52,25 +53,53 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${manrope.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        {isAdmin ? (
-          children
-        ) : (
-          <>
-            <a
-              href="#content"
-              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[10001] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-primary"
-            >
-              Skip to content
-            </a>
-            <Preloader />
-            <MagicCursor />
-            <Header />
-            <main id="content" className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </>
-        )}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const saved = localStorage.getItem('awfca-theme');
+                  if (saved) {
+                    const theme = JSON.parse(saved);
+                    if (theme.id === 'emerald-hope') {
+                      // Migrate old default theme to Crimson Compassion
+                      document.documentElement.style.setProperty('--giveon-primary', '#1b2436');
+                      document.documentElement.style.setProperty('--giveon-primary-soft', '#2a354c');
+                      document.documentElement.style.setProperty('--giveon-accent', '#B10D13');
+                      document.documentElement.style.setProperty('--giveon-accent-deep', '#940a0e');
+                    } else {
+                      if (theme.primary) document.documentElement.style.setProperty('--giveon-primary', theme.primary);
+                      if (theme.primarySoft) document.documentElement.style.setProperty('--giveon-primary-soft', theme.primarySoft);
+                      if (theme.accent) document.documentElement.style.setProperty('--giveon-accent', theme.accent);
+                      if (theme.accentDeep) document.documentElement.style.setProperty('--giveon-accent-deep', theme.accentDeep);
+                    }
+                  }
+                } catch (e) {}
+              })();
+            `
+          }}
+        />
+        <ThemeProvider>
+          {isAdmin ? (
+            children
+          ) : (
+            <>
+              <a
+                href="#content"
+                className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[10001] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-primary"
+              >
+                Skip to content
+              </a>
+              <Preloader />
+              <MagicCursor />
+              <Header />
+              <main id="content" className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </>
+          )}
+        </ThemeProvider>
       </body>
     </html>
   );
